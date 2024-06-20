@@ -1,4 +1,4 @@
-import { auth } from "@/auth";
+import getSession from "@/lib/getSession";
 import { Metadata } from "next";
 import Link from "next/link";
 import { redirect } from "next/navigation";
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   // TODO: Redirect non-admin users
-  const session = await auth();
+  const session = await getSession();
   const user = session?.user;
 
   if (!user) {
