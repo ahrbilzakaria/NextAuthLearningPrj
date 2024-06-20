@@ -15,5 +15,6 @@ export default async function Page() {
   if (!user) {
     redirect("/signin?callbackUrl=/settings");
   }
+
   return <SettingsPage user={user} />;
 }
